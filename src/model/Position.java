@@ -1,35 +1,47 @@
 package model;
 
-public abstract class Position {
-    private String path; // The path (palace) this position belongs to.
-    private int score;   // The score value of the position.
+/**
+ * Represents a specific position on the game board.
+ */
+public class Position {
+    private int row;
+    private int column;
+    private Artifact artifact;
 
-    public Position(String path, int score) {
-        this.path = path;
-        this.score = score;
+    /**
+     * Initializes a position with specified coordinates.
+     * Preconditions: Coordinates must be within board limits.
+     * Postconditions: Position is created with the given coordinates.
+     *
+     * @param row The row index of the position.
+     * @param column The column index of the position.
+     */
+    public Position(int row, int column) {
+        this.row = row;
+        this.column = column;
+        this.artifact = null; // Initially no artifact
     }
 
     /**
-     * Retrieves the path of this position.
-     * @return the path this position belongs to.
+     * Sets an artifact at this position.
+     * Preconditions: Position must be unoccupied.
+     * Postconditions: Artifact is placed at the position.
+     *
+     * @param artifact The artifact to place.
      */
-    public String getPath() {
-        return path;
+    public void setArtifact(Artifact artifact) {
+        this.artifact = artifact;
     }
 
     /**
-     * Retrieves the score of this position.
-     * @return the score value of the position.
+     * Gets the artifact at this position.
+     * Preconditions: None.
+     * Postconditions: Returns the artifact at the position, or null if unoccupied.
+     *
+     * @return The artifact at the position.
      */
-    public int getScore() {
-        return score;
-    }
-
-    @Override
-    public String toString() {
-        return "Position{" +
-                "path='" + path + '\'' +
-                ", score=" + score +
-                '}';
+    public Artifact getArtifact() {
+        return artifact;
     }
 }
+

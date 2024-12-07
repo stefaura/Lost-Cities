@@ -1,50 +1,34 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Represents a path on the game board (a row of 9 positions).
+ */
 public class Path {
-    private String palace; // The name of the palace this path belongs to.
-    private List<Position> positions; // The 9 spaces (positions) of the path.
-
-    public Path(String palace) {
-        this.palace = palace;
-        this.positions = new ArrayList<>();
-    }
+    private Position[] steps;
 
     /**
-     * Adds a position to the path.
-     * @param position the position to add to the path.
+     * Initializes a path with the specified number of steps (9).
+     * Preconditions: Number of steps must be 9.
+     * Postconditions: Path is initialized with 9 steps.
      */
-    public void addPosition(Position position) {
-        if (positions.size() < 9) {
-            positions.add(position);
-        } else {
-            System.out.println("Path already has 9 positions!");
+    public Path(int numSteps) {
+        steps = new Position[numSteps];
+        for (int i = 0; i < numSteps; i++) {
+            steps[i] = new Position(i, 0); // Set position for each step
         }
     }
 
     /**
-     * Retrieves the list of positions on this path.
-     * @return the list of positions.
+     * Gets the position at a specific step.
+     * Preconditions: Step index must be between 0 and 8.
+     * Postconditions: Returns the position at the specified step.
+     *
+     * @param stepIndex The index of the step.
+     * @return The position at the step.
      */
-    public List<Position> getPositions() {
-        return new ArrayList<>(positions); // Return a copy to protect internal data.
-    }
-
-    /**
-     * Retrieves the name of the palace.
-     * @return the palace name.
-     */
-    public String getPalace() {
-        return palace;
-    }
-
-    @Override
-    public String toString() {
-        return "Path{" +
-                "palace='" + palace + '\'' +
-                ", positions=" + positions +
-                '}';
+    public Position getPosition(int stepIndex) {
+        return steps[stepIndex];
     }
 }
+
+

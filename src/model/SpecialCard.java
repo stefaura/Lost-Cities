@@ -1,14 +1,14 @@
 package model;
 
-public abstract class SpecialCard extends Card {
+/**
+ * Represents a special card in the game.
+ */
+public abstract class SpecialCard implements Card {
+    protected String type;
 
-    public SpecialCard(String palace, String name) {
-        super(palace, name);
-    }
-
-    /**
-     * Special cards may have unique matching rules.
-     */
     @Override
-    public abstract boolean matchCard(Card otherCard);
+    public String getType() {
+        return type;
+    }
 }
+

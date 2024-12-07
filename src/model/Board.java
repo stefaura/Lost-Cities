@@ -1,54 +1,33 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Represents the game board, consisting of 4 paths.
+ */
 public class Board {
-    private List<Path> paths; // A list of paths (palaces) on the board.
-    private List<Card> cardStack; // The stack of cards for the game.
+    private Path[] paths;
 
+    /**
+     * Initializes the game board with 4 paths of 9 steps each.
+     * Preconditions: None.
+     * Postconditions: Board is initialized with 4 paths.
+     */
     public Board() {
-        this.paths = new ArrayList<>();
-        this.cardStack = new ArrayList<>();
+        paths = new Path[4];
+        for (int i = 0; i < paths.length; i++) {
+            paths[i] = new Path(9); // 9 steps per path
+        }
     }
 
     /**
-     * Adds a path to the board.
-     * @param path the path to add to the board.
+     * Places an artifact on the board.
+     * Preconditions: Position must be valid and unoccupied.
+     * Postconditions: Artifact is placed at the given position.
+     *
+     * @param position The position to place the artifact.
+     * @param artifact The artifact to place.
      */
-    public void addPath(Path path) {
-        paths.add(path);
-    }
-
-    /**
-     * Adds a card to the stack of cards.
-     * @param card the card to add to the stack.
-     */
-    public void addCardToStack(Card card) {
-        cardStack.add(card);
-    }
-
-    /**
-     * Retrieves the list of paths on the board.
-     * @return the list of paths.
-     */
-    public List<Path> getPaths() {
-        return new ArrayList<>(paths); // Return a copy to protect internal data.
-    }
-
-    /**
-     * Retrieves the stack of cards.
-     * @return the stack of cards.
-     */
-    public List<Card> getCardStack() {
-        return new ArrayList<>(cardStack);
-    }
-
-    @Override
-    public String toString() {
-        return "Board{" +
-                "paths=" + paths +
-                ", cardStack=" + cardStack +
-                '}';
+    public void placeArtifact(Position position, Artifact artifact) {
+        // Implementation pending
     }
 }
+

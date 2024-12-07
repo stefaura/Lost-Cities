@@ -1,16 +1,21 @@
 package model;
 
+/**
+ * Represents a Minotaur card.
+ */
 public class MinotaurCard extends SpecialCard {
-
-    public MinotaurCard(String palace) {
-        super(palace, "Minotaur");
+    /**
+     * Creates a Minotaur card.
+     * Preconditions: None.
+     * Postconditions: A Minotaur card is created.
+     */
+    public MinotaurCard() {
+        this.type = "Minotaur";
     }
 
-    /**
-     * The Minotaur card can block any card except another Minotaur.
-     */
     @Override
-    public boolean matchCard(Card otherCard) {
-        return !(otherCard instanceof MinotaurCard);
+    public int getValue() {
+        return 0;
     }
 }
+

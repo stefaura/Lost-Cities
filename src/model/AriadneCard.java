@@ -1,20 +1,21 @@
 package model;
 
-
 /**
- * Represents Ariadne's Myth special card.
+ * Represents an Ariadne's thread card.
  */
 public class AriadneCard extends SpecialCard {
-
-    public AriadneCard(String palace) {
-        super(palace, "Ariadne's Myth");
+    /**
+     * Creates an Ariadne card.
+     * Preconditions: None.
+     * Postconditions: An Ariadne card is created.
+     */
+    public AriadneCard() {
+        this.type = "Ariadne";
     }
 
-    /**
-     * Ariadne's Myth can always match any card in the same palace.
-     */
     @Override
-    public boolean matchCard(Card otherCard) {
-        return this.palace.equals(otherCard.getPalace());
+    public int getValue() {
+        return 0;
     }
 }
+
